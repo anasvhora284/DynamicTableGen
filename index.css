@@ -1,0 +1,140 @@
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.main-body {
+    background-color: var(--bs-body-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    justify-content: space-between;
+    z-index: 0;
+}
+
+.main_container > div {
+    margin: auto;
+}
+
+.main_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
+
+.table_preview {
+    background-color: #343a40;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    color: #fff;
+    width: calc(100% - 30px);
+}
+
+.generator_options {
+    background-color: #343a40;
+    margin-bottom: 5px;
+    padding: 15px;
+    border-radius: 15px;
+    color: #fff;
+    width: calc(100% - 30px);
+}
+
+.buttons_container {
+    background-color: var(--bs-body-color);
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 15px;
+    color: #fff;
+    max-width: 30%;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+    z-index: 10;
+    cursor: grabbing;
+}
+
+.table_controllers_container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+}
+
+.buttons_controllers {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+
+.fields_container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.field_container {
+    display: flex;
+    align-items: center;
+    text-wrap: nowrap;
+    gap: 5px;
+}
+
+.field_container input,
+.field_container span,
+.field_container input:focus,
+.buttons_container input,
+.buttons_container input:focus,
+.buttons_container span {
+    accent-color: #343a40;
+    background-color: #343a40;
+    color: #fff;
+    border-color: #484f56;
+}
+
+.color_picker_lable {
+    color: #fff;
+}
+
+#color_input {
+    align-self: center;
+    cursor: pointer;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #343a40 !important;
+    color: #fff !important;
+}
+
+#table {
+    display: flex;
+    height: inherit;
+    width: inherit;
+}
+
+table {
+    border-radius: 15px;
+}
+
+td {
+    border-radius: 15px;
+    cursor: pointer;
+}
