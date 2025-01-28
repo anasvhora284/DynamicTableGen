@@ -19,7 +19,7 @@ let width,
 startCellValue.addEventListener("input", checkInputValues);
 endCellValue.addEventListener("input", checkInputValues);
 
-window.onload = loadTableState();
+window.onload = loadTableState;
 
 // dragable div code
 draggableDiv.addEventListener("dragend", (event) => {
@@ -101,7 +101,7 @@ function highlightSelectedCells(startCell, endCell) {
         for (let j = startCol; j <= endCol; j++) {
             if (table.rows[i] && table.rows[i].cells[j]) {
                 const cell = table.rows[i].cells[j];
-                cell.style.border = "2px solid red";
+                cell.style.outline = "2px solid red";
                 selectedCells.push(cell);
             }
         }
@@ -113,9 +113,7 @@ function resetCellStyles() {
     const cells = table.getElementsByTagName("td");
     for (let cell of cells) {
         cell.style.backgroundColor = "";
-        cell.style.border = `${borderWidth || 1}px solid ${
-            borderColor || "#000"
-        }`;
+        cell.style.outline = "none";
     }
     selectedCells = [];
 }
@@ -190,7 +188,6 @@ function createCell(rowIndex, colIndex, content, cell) {
         selectCell(cell);
     });
 
-    cell.style.border = `${borderWidth || 1}px solid ${borderColor || "#000"}`;
     return cell;
 }
 
@@ -232,7 +229,7 @@ function selectCellsInRange(
                 currentCell.querySelector(
                     'input[type="checkbox"]'
                 ).checked = true;
-                currentCell.style.border = "2px solid red";
+                currentCell.style.outline = "2px solid red";
                 if (!selectedCells.includes(currentCell)) {
                     selectedCells.push(currentCell);
                 }
@@ -260,6 +257,7 @@ function renderTable() {
             }
         }
     }
+    applyTableStyles();
 }
 
 function addRow() {
@@ -330,7 +328,7 @@ function selectCell(cell) {
 
     if (selectedCells.length === 0) {
         // First cell selection
-        $(cell).css("border", "2px solid red");
+        $(cell).css("outline", "2px solid red");
         selectedCells.push(cell);
     } else {
         // Second cell selection - select all cells in between
@@ -341,7 +339,7 @@ function selectCell(cell) {
         // Reset previous selection except the first cell
         resetCellStyles();
         selectedCells = [firstCell];
-        $(firstCell).css("border", "2px solid red");
+        $(firstCell).css("outline", "2px solid red");
 
         // Rest of the selection logic remains the same
         const isFirstCellMergedVertically = firstCell.rowSpan > 1;
@@ -374,7 +372,7 @@ function selectCell(cell) {
                         currentCellCoords &&
                         currentCellCoords.col === firstCoords.col
                     ) {
-                        $(currentCell).css("border", "2px solid red");
+                        $(currentCell).css("outline", "2px solid red");
                         if (!selectedCells.includes(currentCell)) {
                             selectedCells.push(currentCell);
                         }
@@ -386,7 +384,7 @@ function selectCell(cell) {
             // Horizontal selection logic remains similar, just update the styling
             // ... existing horizontal selection logic ...
             // Replace checkbox checks with jQuery border styling
-            $(currentCell).css("border", "2px solid red");
+            $(currentCell).css("outline", "2px solid red");
         } else {
             // Normal selection
             const startRow = Math.min(firstCoords.row, currentCoords.row);
@@ -411,7 +409,7 @@ function selectCell(cell) {
                         currentCellCoords.col >= startCol &&
                         currentCellCoords.col <= endCol
                     ) {
-                        $(currentCell).css("border", "2px solid red");
+                        $(currentCell).css("outline", "2px solid red");
                         if (!selectedCells.includes(currentCell)) {
                             selectedCells.push(currentCell);
                         }
@@ -594,13 +592,12 @@ function applyTableStyles() {
     table.style.border = `${borderWidth}px solid ${borderColor}`;
     table.cellSpacing = cellSpacing;
     table.cellPadding = cellPadding;
+
+    // Apply styles to all cells
     const cells = table.getElementsByTagName("td");
     for (let cell of cells) {
-        if (!selectedCells.includes(cell)) {
-            cell.style.border = `${borderWidth}px solid ${borderColor}`;
-        }
+        cell.style.border = `${borderWidth}px solid ${borderColor}`;
     }
-    storeTableState();
 }
 
 // function to align table based on dropdown.
@@ -614,7 +611,7 @@ function tableAlign(alignment) {
 disableControllerButtons();
 document.querySelector(".controllers .btn-outline-success").disabled = false;
 
-//store all states so on reloading nothig gets lost:
+//store all states so, on reloading nothig gets lost:
 // Function to store table state in localStorage
 function storeTableState() {
     const tableState = {
