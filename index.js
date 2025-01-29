@@ -276,6 +276,7 @@ function addRow() {
     table_Array.push(rowData);
     toggleStyleButtons();
     storeTableState();
+    applyTableStyles();
 }
 
 function addColumn() {
@@ -291,6 +292,7 @@ function addColumn() {
         table_Array[rowIndex].push(newCell.textContent);
     }
     storeTableState();
+    applyTableStyles();
 }
 
 function removeRow() {
@@ -506,6 +508,7 @@ function mergeCells() {
     document.querySelector(".merge-button").disabled = true;
     document.querySelector(".unmerge-button").disabled = false;
     storeTableState();
+    applyTableStyles();
 }
 
 // Logic: Get the merged cell and store its colspan & rowspan value,
@@ -548,6 +551,7 @@ function unmergeCells() {
     resetCellStyles();
     document.querySelector(".unmerge-button").disabled = true;
     storeTableState();
+    applyTableStyles();
 }
 
 // Update the table array storage to include merge information

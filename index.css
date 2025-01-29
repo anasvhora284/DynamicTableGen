@@ -67,10 +67,18 @@ input[type="number"] {
     cursor: grabbing;
 }
 
+.style-button {
+    grid-column: 1 / 3;
+}
+
 .table_controllers_container {
     display: grid;
     grid-template-columns: auto;
     gap: 10px;
+}
+
+.controllers {
+    display: none;
 }
 
 .buttons_controllers {
