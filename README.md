@@ -85,7 +85,7 @@ git clone https://github.com/anasvhora284/DynamicTableGen.git
 2. Open any project folder in your preferred browser:
 
 ```bash
-cd DynamicTableGen/Task-4-Dynamic\ table\ Generator
+cd DynamicTableGen/Task-4-Dynamic table Generator
 ```
 
 3. Open `index.html` in your browser
