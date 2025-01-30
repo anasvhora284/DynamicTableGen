@@ -30,9 +30,10 @@ function polybius(text) {
 
             let decoded = "";
             for (let i = 0; i < num.length; i += 2) {
-                const row = parseInt(num[i]) - 1;
+                const row = parseInt(num[i]) - 1; // -1 because array index starts from 0 ;)
                 const col = parseInt(num[i + 1]) - 1;
                 if (matrix[row] && matrix[row][col]) {
+                    // making sure that row and col exists in matrix
                     decoded += matrix[row][col];
                 }
             }
@@ -119,6 +120,7 @@ function chunk(array, subArraySize) {
         chunk.push(array[index]);
 
         if (chunk.length === subArraySize || index === array.length - 1) {
+            // checks for chunk array length and given size.
             resultArray.push(chunk);
             chunk = [];
         }
@@ -136,10 +138,10 @@ console.log(
 );
 
 // Task 2 Calls
-console.log(get_sentence_value("HELLO world"));
+console.log(get_sentence_value("HELLO world")); // Should output: (8+5+12+12+15) * 2(because whole word is cap) + (23+15+18+12+4) = 176
 console.log(get_sentence_value("Edabit is LEGENDARY"), "\n");
 
 // Tasl 3 Calls
-console.log(chunk([1, 2, 3, 4, 5], 2));
+console.log(chunk([1, 2, 3, 4, 5], 2)); // Make a sub array of given numbers of elemets. 2 elements in each sub array.
 console.log(chunk([1, 2, 3, 4, 5, 6, 7], 3));
 console.log(chunk([1, 2, 3, 4, 5], 10));
