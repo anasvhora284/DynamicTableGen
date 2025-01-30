@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5 - Tables</title>
+    <style>
+        /*United Table Stylings*/
+        table {
+            height: 300px;
+            width: 350px;
+            border-spacing: 0;
+            border: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+            min-width: 20px;
+            text-align: center;
+            font-size: smaller;
+        }
+
+        .table_container {
+            display: flex;
+            gap: 5%;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .table_4_J li {
+            width: min-content;
+        }
+
+        .left { 
+            text-align: left;
+        }
+        
+        /* Table - 1 Stylings */
+        .table_1_A, .table_2_C, .table_3_O, .table_5_A {
+            background-color: red;
+        }
+
+        .table_1_B, .table_2_G, .table_4_B, .table_5_N {
+            background-color: lightgreen;
+        }
+
+        .table_1_C {
+            background-color: rgb(245, 212, 136);
+        }
+
+        .table_1_D, .table_5_D {
+            background-color: magenta;
+        }
+
+        .table_1_E, .table_2_D {
+            background-color: rgb(32, 221, 32);
+        }
+
+        .table_1_F, .table_2_H, .table_3_E, .table_5_F {
+            background-color: blue;
+            height: 40px;
+        }
+
+        .table_1_G, .table_3_B {
+            background-color: yellow;
+            height: 20px;
+        }
+
+        .table_1_H, .table_3_J, .table_4_G {
+            background-color: rgb(248, 196, 148);
+        }
+
+        .table_1_I {
+            background-color: brown;
+        }
+
+        .table_1_J {
+            background-color: rgb(238, 156, 238);
+        }
+
+        /* Table - 2 Stylings */
+        .table_2_A {
+            background-color: rgb(234, 0, 255);
+        }
+
+        .table_2_B {
+            background-color: cyan;
+        }
+
+        .table_2_E, .table_3_L {
+            background-color: rgb(255, 0, 255);
+            text-align: center;
+        }
+
+        .table_2_F, .table_3_C {
+            background-color: lightblue;
+        }
+
+        .table_2_I, .table_5_E {
+            background-color: rgb(139, 139, 239);
+        }
+
+        .table_2_J {
+            background-color: pink;
+        }
+
+        .table_2_K {
+            background-color: rgb(197, 149, 207);
+        }
+
+        .table_2_L {
+            background-color: darkgreen;
+        }
+
+        .table_2_M, .table_3_N {
+            background-color: gray;
+        }
+
+        /* Table - 3 Stylings */
+        .table_3_A {
+            background-color: rgb(186, 90, 56);
+        }
+
+        .table_3_D, .table_4_L {
+            background-color: cyan;
+        }
+
+        .table_3_F, .table_3_G, .table_3_H {
+            background-color: rgb(117, 71, 71);
+        }
+
+        .table_3_I {
+            background-color: rgb(181, 100, 193);
+        }
+
+        .table_3_K {
+            background-color: rgb(182, 205, 205);
+        }
+
+        .table_3_M {
+            background-color: maroon;
+        }
+
+        /* Table - 4 Stylings */
+        .table_4_A, .table_4_M {
+            background-color: rgb(255, 255, 0); /* Yellow */
+        }
+
+        .table_4_C, .table_4_K {
+            background-color: rgb(255, 0, 255); /* Magenta */
+        }
+
+        .table_4_D {
+            background-color: blue; /* Blue */
+        }
+
+        .table_4_F {
+            background-color: red;
+        }
+
+        .table_4_E {
+            background-color: sandybrown;
+        }
+
+        .table_4_H {
+            background-color: rgb(183, 75, 7);
+        }
+
+        .table_4_I {
+            background-color: rgb(173, 216, 230); /* Light Blue */
+        }
+
+        .table_4_J {
+            background-color: rgb(144, 238, 144); /* Light Green */
+        }
+
+        /* Table - 5 Stylings */
+        .table_5_B {
+            background-color: yellow; /* Yellow */
+        }
+
+        .table_5_C {
+            background-color: green; /* Green */
+        }
+
+        .table_5_I {
+            background-color: orange; /* Orange */
+        }
+
+        .table_5_G {
+            background-color: cyan; /* Cyan */
+        }
+
+        .table_5_H {
+            background-color: sandybrown; /* Peach */
+        }
+
+        .table_5_J {
+            background-color: purple; /* Purple */
+        }
+
+        .table_5_K {
+            background-color: darkgreen; /* Dark Green */
+        }
+
+        .table_5_L {
+            background-color: magenta; /* Magenta */
+        }
+
+        .table_5_M {
+            background-color: rgb(129, 188, 217); /* Gray */
+        }
+
+        .table_5_O {
+            background-color: rgb(180, 236, 180); /* Beige */
+        }
+
+        .table_5_P {
+            background-color: rgb(112, 78, 78); /* Light Gray */
+        }
+
+        .table_5_Q {
+            background-color: darkgray; /* Dark Gray */
+        }
+
+        .table_5_R {
+            background-color: blue; /* Blue */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table_container">
+        <div>
+            <h1>Table - 1</h1>
+            <table>
+                <tr>
+                    <td class="table_1_A left" rowspan="10" colspan="1" style="height: 100px;">A</td>
+                    <td class="table_1_B left" rowspan="10" colspan="1">B</td>
+                    <td class="table_1_C left" rowspan="10" colspan="1">C</td>
+                    <td class="table_1_D" rowspan="5" colspan="3" style="height: 50px; width: 50px;">D</td>
+                </tr>
+
+                <!-- Extra Rows -->
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_1_E" colspan="2" rowspan="5" style=" height: 25px; width: 50px;">E</td>
+                </tr>
+
+                
+                <!-- Extra Rows -->
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_1_F" rowspan="5" colspan="3" style="height: 50px;">F</td>
+                </tr>
+
+                <tr>
+                    <td class="table_1_H" rowspan="3" colspan="3" style="padding: 0px;">H</td>
+                </tr>
+
+                
+                <!-- Extra Rows -->
+                <tr></tr>
+                <tr></tr>
+                
+                <tr>
+                    <td class="table_1_I" rowspan="4" colspan="3" style="height: 30px;">I</td>
+                </tr>
+
+                <!-- Extra Rows -->
+                <tr></tr>
+                <tr></tr>
+                
+                <tr>
+                    <td class="table_1_G" rowspan="5" colspan="3" style="height: 50px;">G</td>
+                </tr>
+
+                <!-- Extra Rows -->
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td class="table_1_J" rowspan="3" colspan="3">J</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h1>Table - 2</h1>
+            <table>
+
+                <!--Row - #1 -->
+                <tr>
+                    <td class="table_2_A left" colspan="2" style="width: 30%; height: 10%;">A</td>
+                    <td class="table_2_B left" colspan="4" style="width: 70%; padding-left: 13%;">B</td>
+                </tr>
+                   
+                <!--Row - #2 -->
+                <tr>
+                    <td class="table_2_C left" rowspan="4" colspan="1" style="height: 80%;">C</td>
+                    <td class="table_2_D left" rowspan="4" colspan="1">D</td>
+                    <td class="table_2_E" rowspan="2" colspan="2" style="width: 30%; padding-top: 0px; text-align: none;">
+                        E
+
+                        <br>
+                        <ul style="list-style-type: none; padding-left: 0px;">
+                            <li>listing</li>
+                            <li>listing</li>
+                            <li>listing</li>
+                        </ul>
+                    </td>
+                    <td class="table_2_F" rowspan="1" colspan="2" style="height: 20%;">F</td>
+                <tr>
+                    <td class="table_2_G" rowspan="1" colspan="2" style="padding-top: 5%; height: 10%;">G</td>
+                </tr>
+
+                <tr>
+                    <td class="table_2_H" colspan="2" style="height: 10%; padding-top: 4%;">H</td>
+                    <td class="table_2_I" colspan="2" rowspan="2" style="height: 20%; padding-bottom: 6%;">I</td>
+                <tr>
+                    <td class="table_2_J" colspan="2" style=" height: 10%; padding-top: 4%;">J</td>
+                </tr>
+                </tr>
+
+                <tr>
+                    <td class="table_2_K" colspan="2" rowspan="2" style="padding-top: 7%; padding-left: 5%;">K</td>
+                    <td class="table_2_L" colspan="4" style=" padding-top: 5%; height: 5%;">L
+                <tr>
+                    <td class="table_2_M" colspan="4" style=" padding-top: 5%; height: 5%;">M</td>
+                </tr>
+                </td>
+                </tr>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h1>Table - 3</h1>
+            <table>
+                <tr>
+                    <td class="table_3_A" colspan="6">A</td>
+                </tr>
+
+                <tr>
+                    <td class="table_3_B left" colspan="1" rowspan="3">B</td>
+                    <td class="table_3_C left" colspan="1" rowspan="3">C</td>
+                    <td class="table_3_D left" colspan="1" rowspan="3">D</td>
+                    <td class="table_3_E" colspan="3">E</td>
+                </tr>
+
+                <tr>
+                    <td class="table_3_F" style="border:0px; border-right: 1px solid black; border-bottom: 1px solid black;">F</td>
+                    <td class="table_3_G" style="border: 0px; border-bottom: 1px solid black;">G</td>
+                    <td class="table_3_H" style="border:0px; border-left: 1px solid black; border-bottom: 1px solid black;">H</td>
+                </tr>
+
+                <tr>
+                    <td class="table_3_I" colspan="3">I</td>
+                </tr>
+
+                <tr>
+                    <td class="table_3_J" colspan="2" style="height: 20%;">J</td>
+                    <td class="table_3_K" colspan="2">K</td>
+                    <td class="table_3_L" colspan="2">L</td>
+                </tr>
+
+                <tr>
+                    <td class="table_3_M" rowspan="1" colspan="3" style="padding-bottom: 3%; height: 10%;">M</td>
+                    <td class="table_3_O" rowspan="2" colspan="3"  style="height: 20%; padding-bottom: 5%; padding-right: 10%;">O</td>
+                </tr>
+
+                <tr>
+                    <td class="table_3_N" rowspan="1" colspan="3"  style="padding-bottom: 3%; height: 10%;">N</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h1>Table - 4</h1>
+            <table>
+                <tr>
+                    <td class="table_4_A" colspan="6" rowspan="1"  style="height: 5%;">A</td>
+                </tr>
+
+                <tr>
+                    <td class="table_4_B" colspan="6" rowspan="2">B</td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_4_C" rowspan="12" colspan="1" style="border-bottom: none; width: 15%;">C</td>
+                    <td class="table_4_D" rowspan="3" colspan="4" style="height: 30px; padding-left: 5%;">D</td>
+                    <td class="table_4_J" rowspan="17" colspan="1"  style="padding-bottom: 3%; width: 20%; text-align: left;">
+                        <span>J</span>
+                        <ul style="list-style-type: none; padding-left: 0;">
+                            <li>listing</li>
+                            <li>listing</li>
+                            <li>listing</li>
+                            <li>listing</li>
+                            <li>listing</li>
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+
+                <td class="table_4_E" rowspan="9" colspan="1"  style="padding-bottom: 3%; width: 15%;">E</td>
+                <td class="table_4_F" rowspan="9" colspan="1"  style="padding-bottom: 3%; width: 15%;">F</td>
+                <td class="table_4_G" rowspan="3" colspan="2"  style="padding-bottom: 3%; width: 30%; height: 10%;">G</td>
+
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_4_H" rowspan="3" colspan="2" style="padding-bottom: 3%; width: 30%; height: 10%;">H</td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_4_I" rowspan="3" colspan="2" style="padding-bottom: 3%; width: 30%; height: 10%;">I</td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_4_K" colspan="5" rowspan="3" style="border-top: none; padding: 10px; padding-right: 20%;">K</td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_4_L" rowspan="2" colspan="5" style="padding-top: 5%; width: 30%; height: 20%; padding-right: 20%;">L</td>
+                </tr>
+
+                <tr></tr>
+
+                <tr>
+                    <td class="table_4_M" colspan="6" rowspan="1" style="height: 5%; padding-right: 40%;">M</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h1>Table - 5</h1>
+            <table>
+                <tr>
+                    <td class="table_5_A left" colspan="1" rowspan="8" style="height: 20%; padding-bottom: 10%;">A</td>
+                    <td class="table_5_B left" colspan="1" rowspan="8" style="padding-bottom: 10%;">B</td>
+                    <td class="table_5_C" colspan="4" rowspan="4" style="height: 30%; padding-top: 5%; text-align: left;">C</td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_5_D" rowspan="4" style="text-align: left; padding-top: 1%;">D</td>
+                    <td class="table_5_E" rowspan="8">E</td>
+                    <td class="table_5_F" rowspan="4" style="text-align: left; padding-right: 20%;">F</td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_5_G" rowspan="4" style="padding-top: 5%; text-align: left;">G</td>
+                    <td class="table_5_H" rowspan="4" style="padding-top: 5%; text-align: left;">H</td>
+                    <td class="table_5_I" rowspan="4" style="padding-top: 5%; text-align: left;">I</td>
+                    <td class="table_5_J" rowspan="4">J</td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_5_K" rowspan="5" colspan="2" style="padding-top: 5%; text-align: left;">K</td>
+                    <td class="table_5_L" rowspan="5" colspan="2" style="padding-top: 10%;">L</td>
+                    <td class="table_5_M" rowspan="5" colspan="2" style=" text-align: left; padding-right: 10%; width: 30%;">M</td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="table_5_N" rowspan="4" style="text-align: left; padding-bottom: 5%;">N</td>
+                    <td class="table_5_O" rowspan="4" style="text-align: left; padding-bottom: 5%;">O</td>
+                    <td class="table_5_P" rowspan="4" style="text-align: left; padding-bottom: 5%;">P</td>
+                    <td class="table_5_Q" rowspan="2" colspan="3" style="padding-bottom: 2%; padding-right: 7%; height: 5%;">Q</td>
+                </tr>
+
+                <tr></tr>
+
+                <tr>
+                    <td class="table_5_R" rowspan="2" colspan="3" style="padding-bottom: 5%; padding-right: 7%; height: 5%;">R</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
