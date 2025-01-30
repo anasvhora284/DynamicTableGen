@@ -15,7 +15,7 @@ An interactive table generator with advanced features:
 -   Local storage persistence
 -   Responsive design
 
-![Table Generator Demo](path-to-demo-image.gif)
+![Table Generator Demo](https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg)
 
 ### 2. [Task Manager](Task-6-ToDoList/)
 
