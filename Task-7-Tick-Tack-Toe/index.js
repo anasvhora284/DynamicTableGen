@@ -61,11 +61,15 @@ $(document).ready(function () {
                 console.log("Here3");
             }
         } else if (player1Name == player2Name) {
+            $("#player-2-name").addClass("error-input");
             $(".alert").text("Player names should be different").show();
         } else {
             $(".player-selection-screen").hide();
             gameStage = 1;
             $(".game-board-screen").show();
+            $("#game-alert").empty().hide();
+            $("#player-1-name").removeClass("error-input");
+            $("#player-2-name").removeClass("error-input");
             $("#player-1-name").val(player1Name);
             $("#player-2-name").val(player2Name);
             $("#game-stage").text(`Game - ${gameStage}`);
@@ -81,15 +85,15 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".cell", function () {
-        $(".current-player-turn").html(
-            `Current Player: <i class="fa ${
-                playerTurn === "X"
-                    ? "fa-circle-o circle-icon"
-                    : "fa-times cross-icon"
-            }" aria-hidden="true"></i>`
-        );
-        console.log("Here1");
         if ($(this).text() == "") {
+            $("#game-alert").empty().hide();
+            $(".current-player-turn").html(
+                `Current Player: <i class="fa ${
+                    playerTurn === "X"
+                        ? "fa-circle-o circle-icon"
+                        : "fa-times cross-icon"
+                }" aria-hidden="true"></i>`
+            );
             $(this).html(
                 playerTurn === "X"
                     ? `<div class = "cross-icon">X</div>`
@@ -112,17 +116,8 @@ $(document).ready(function () {
             if (checkWinner(currentBoard, playerTurn, gameStage)) {
                 if (gameStage < 3) {
                     showNextStageButton();
-                    nextStage(); // Automatically move to next stage
                 } else {
-                    $("#game-alert").append("<p>Game Complete!</p>");
-                    currentScreen = "home";
-                    $(".game-board-screen").hide();
-                    $(".home-screen").show();
-                    localStorage.removeItem("ticTacToeData");
-                    resetGame();
-                    $("#player-1-name").val("");
-                    $("#player-2-name").val("");
-                    storeLocalData();
+                    showRestartGameButton();
                 }
             }
 
@@ -135,6 +130,7 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on("click", "#restart-game-btn", restartGame);
     $(document).on("click", "#next-stage-btn", nextStage);
 
     $("#player-1-name, #player-2-name").on("change", function () {
@@ -154,29 +150,72 @@ $(document).ready(function () {
 function nextStage() {
     gameStage++;
     $("#game-stage").text(`Game - ${gameStage}`);
-    $(".cell").text("");
-    $("#game-alert").empty().hide();
+    $(".cell").text("").removeClass("winning-cell");
+    $(".cell").text("").removeClass("draw-cell");
+    $(".game-board").removeClass("game-won");
+    $(".next-stage-button-container").empty().hide();
     $("#next-stage-btn").remove();
     storeLocalData();
 }
 
 function showNextStageButton() {
-    $("#game-alert").append(
-        "<button id='next-stage-btn' class='btn btn-primary mt-3'>Next Stage</button>"
-    );
+    $(".next-stage-button-container").empty();
+    $(".next-stage-button-container")
+        .append(
+            "<button id='next-stage-btn' class='btn btn-primary mt-3'>Next Stage</button>"
+        )
+        .show();
+}
+
+function showRestartGameButton() {
+    $(".next-stage-button-container").empty();
+    $(".next-stage-button-container")
+        .append(
+            "<button id='restart-game-btn' class='btn btn-success mt-3'>Restart Game</button>"
+        )
+        .show();
+}
+
+function restartGame() {
+    currentScreen = "home";
+    $(".game-board-screen").hide();
+    $(".home-screen").show();
+    localStorage.removeItem("ticTacToeData");
+    resetGame();
+    $("#player-1-name").val("");
+    $("#player-2-name").val("");
+    $(".cell").text("").removeClass("winning-cell");
+    $(".cell").text("").removeClass("draw-cell");
+    $(".game-board").removeClass("game-won");
+    $(".next-stage-button-container").empty();
+    storeLocalData();
 }
 
 function checkWinner(gameBoard, playerSign, gameStage) {
     const currentDate = new Date().toLocaleString();
-    console.log(currentDate);
+
     for (let positions of winningPositions) {
         if (positions.every((pos) => gameBoard[pos] === playerSign)) {
             const winner = playerSign === "X" ? player2Name : player1Name;
+
+            positions.forEach((pos) => {
+                $(`#cell${pos + 1}`).addClass("winning-cell");
+            });
+
+            $(".game-board").addClass("game-won");
+
             $(".game-history").append(
-                `<p class = ${
+                `<p class=${
                     playerSign == "X" ? "cross-icon" : "circle-icon"
-                }>Game ${gameStage}: ${winner} (${playerSign}) is the winner! <span class = "date-text" >${currentDate}</span></p>`
+                }>Game ${gameStage}: ${winner} (${playerSign}) is the winner! <span class="date-text">${currentDate}</span></p>`
             );
+
+            if (gameStage < 3) {
+                showNextStageButton();
+            } else {
+                showRestartGameButton();
+            }
+
             return true;
         }
     }
@@ -185,6 +224,12 @@ function checkWinner(gameBoard, playerSign, gameStage) {
         $(".game-history").append(
             `<p>Game ${gameStage}: The game has been drawn!</p>`
         );
+        $(`.cell`).addClass("draw-cell");
+        if (gameStage < 3) {
+            showNextStageButton();
+        } else {
+            showRestartGameButton();
+        }
         return true;
     }
     return false;
@@ -198,11 +243,14 @@ function resetGame() {
     player2Name = "";
     gameStage = 0;
     playerTurn = "X";
-    $(".cell").text("");
+    $(".cell").text("").removeClass("winning-cell");
+    $(".cell").text("").removeClass("draw-cell");
+    $(".game-board").removeClass("game-won");
     $("#game-alert").empty();
     $("#player-1-name").val("");
     $("#player-2-name").val("");
     $("#game-stage").text("Game 1");
+    $(".next-stage-button-container").empty().hide();
     storeLocalData();
     updateUIFromGameData();
 }
@@ -266,8 +314,23 @@ function updateUIFromGameData() {
             });
         };
 
-        if (gameStage === 1) updateBoard(board1);
-        if (gameStage === 2) updateBoard(board2);
-        if (gameStage === 3) updateBoard(board3);
+        if (gameStage === 1) {
+            updateBoard(board1);
+            if (checkWinner(board1, playerTurn === "X" ? "O" : "X", 1)) {
+                $(".game-board").addClass("game-won");
+            }
+        }
+        if (gameStage === 2) {
+            updateBoard(board2);
+            if (checkWinner(board2, playerTurn === "X" ? "O" : "X", 2)) {
+                $(".game-board").addClass("game-won");
+            }
+        }
+        if (gameStage === 3) {
+            updateBoard(board3);
+            if (checkWinner(board3, playerTurn === "X" ? "O" : "X", 3)) {
+                $(".game-board").addClass("game-won");
+            }
+        }
     }
 }
