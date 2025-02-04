@@ -1,0 +1,17 @@
+0000000000000000000000000000000000000000 fc5f8b00f83d34c7048071e938fd268cc8c1ee76 anasvhora284 <vhoraayaz8@gmail.com> 1738044805 +0530	branch: Created from refs/remotes/origin/main
+fc5f8b00f83d34c7048071e938fd268cc8c1ee76 f8c4d534e2a1f8873e86d7793048c83478625097 anasvhora284 <vhoraayaz8@gmail.com> 1738045006 +0530	commit: Add detailed README and initial CSS styles for table generator
+f8c4d534e2a1f8873e86d7793048c83478625097 2d101788e7fa26a295d9333810a485aa02be88de anasvhora284 <vhoraayaz8@gmail.com> 1738045129 +0530	commit: Update README with detailed overview and operation descriptions for dynamic table generator
+2d101788e7fa26a295d9333810a485aa02be88de cf8e9a23b90faf842196772d016a1d73b6a258c5 anasvhora284 <vhoraayaz8@gmail.com> 1738084467 +0530	commit: fixed border issue with outline
+cf8e9a23b90faf842196772d016a1d73b6a258c5 f30cf061e3808dc249dfd682d6ded7f840970b2e anasvhora284 <vhoraayaz8@gmail.com> 1738130481 +0530	commit: Add style button and apply styles functionality to table operations
+f30cf061e3808dc249dfd682d6ded7f840970b2e dc0174217ee46a31f61fef4b06417386dc4df996 anasvhora284 <vhoraayaz8@gmail.com> 1738224525 +0530	commit: Updated the repo with all of the tasks
+dc0174217ee46a31f61fef4b06417386dc4df996 d33d480ebf47249d6136012f8490da287cae9892 anasvhora284 <vhoraayaz8@gmail.com> 1738224761 +0530	commit: Added readme file
+d33d480ebf47249d6136012f8490da287cae9892 9d26cab11c01face385fa0eadc3ef6aa2376b290 anasvhora284 <vhoraayaz8@gmail.com> 1738224834 +0530	commit: Fix README navigation command formatting for clarity
+9d26cab11c01face385fa0eadc3ef6aa2376b290 ade3743c30c5f9a1fd5eacc3dd8afc38fe20509b anasvhora284 <vhoraayaz8@gmail.com> 1738229687 +0530	pull --tags origin main: Fast-forward
+ade3743c30c5f9a1fd5eacc3dd8afc38fe20509b 6897c79b8b1fbd99d62a2637a6a74272c9e5c587 anasvhora284 <vhoraayaz8@gmail.com> 1738240639 +0530	commit: Add knight's jump and largest island algorithms
+6897c79b8b1fbd99d62a2637a6a74272c9e5c587 7c6d592e6dd7f3830813342fae3a051b96d0b4ac anasvhora284 <vhoraayaz8@gmail.com> 1738257290 +0530	commit: Refactor largestIsland function and update test cases for clarity
+7c6d592e6dd7f3830813342fae3a051b96d0b4ac 972370da694b16c9b12dde3a6aeddb89221bbabd anasvhora284 <vhoraayaz8@gmail.com> 1738258636 +0530	commit: Add comments for clarity in polybius and chunk functions
+972370da694b16c9b12dde3a6aeddb89221bbabd 9e322b8cf0e3cad2661a851d92d9c4b00716fad4 anasvhora284 <vhoraayaz8@gmail.com> 1738299078 +0530	commit: Added knight's jump and rotate array algorithms
+9e322b8cf0e3cad2661a851d92d9c4b00716fad4 aa07b84db77c964c145a6fe9d7f396b74db474c8 anasvhora284 <vhoraayaz8@gmail.com> 1738299732 +0530	commit: Refactored files to send
+aa07b84db77c964c145a6fe9d7f396b74db474c8 428e160f170c05845850da2e184fc9fd9a70a19d anasvhora284 <vhoraayaz8@gmail.com> 1738340123 +0530	commit: Add CSS styles for Tick-Tack-Toe game interface
+428e160f170c05845850da2e184fc9fd9a70a19d 38b0e74e0d806f608ac9e38a68f38730f9fa9e60 anasvhora284 <vhoraayaz8@gmail.com> 1738588701 +0530	commit: Add Snake game HTML and CSS files with initial layout and styles
+38b0e74e0d806f608ac9e38a68f38730f9fa9e60 56d7e1749120e3df913711982d295c1908f20a3f anasvhora284 <vhoraayaz8@gmail.com> 1738649466 +0530	commit: Refactor Snake game styles and update README for improved clarity and structure

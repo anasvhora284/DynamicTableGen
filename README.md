@@ -8,83 +8,99 @@ A collection of web development projects focusing on DOM manipulation, dynamic c
 
 An interactive table generator with advanced features:
 
--   Dynamic row and column management
--   Cell merging and unmerging capabilities
--   Customizable styles (colors, borders, spacing)
--   Drag-and-drop interface
--   Local storage persistence
--   Responsive design
+- Dynamic row and column management
+- Cell merging and unmerging capabilities
+- Customizable styles (colors, borders, spacing)
+- Drag-and-drop interface
+- Local storage persistence
+- Responsive design
 
 ### 2. [Task Manager](Task-6-ToDoList/)
 
 A Kanban-style task management system:
 
--   Multiple task stages
--   Drag-and-drop task organization
--   Add/Edit/Delete tasks
--   Stage management
--   Clean and modern UI
+- Multiple task stages
+- Drag-and-drop task organization
+- Add/Edit/Delete tasks
+- Stage management
+- Clean and modern UI
 
 ### 3. [Table Layouts](Task-1/)
 
 A collection of complex table layouts demonstrating advanced HTML table structures:
 
--   Nested tables
--   Row and column spanning
--   Custom styling
--   Color-coded cells
--   Responsive designs
+- Nested tables
+- Row and column spanning
+- Custom styling
+- Color-coded cells
+- Responsive designs
 
 ### 4. [Form Styling](Task-2/)
 
 Modern form design implementation:
 
--   Clean and responsive layout
--   Custom input styling
--   Form validation
--   Enhanced user experience
+- Clean and responsive layout
+- Custom input styling
+- Form validation
+- Enhanced user experience
+
+### 5. [Tick-Tack-Toe Game](Task-7-Tick-Tack-Toe/)
+
+A simple implementation of the classic game with a leaderboard feature:
+
+- Player vs Player mode
+- Game history tracking
+- Responsive design
+
+### 6. [Snake Game](Task-8-snake-game/)
+
+A classic Snake game implementation:
+
+- Simple gameplay mechanics
+- Score tracking
+- Responsive design
 
 ## 🛠️ Technologies Used
 
--   HTML5
--   CSS3
--   JavaScript
--   jQuery
--   jQuery UI
--   Bootstrap
--   Font Awesome
+- HTML5
+- CSS3
+- JavaScript
+- jQuery
+- jQuery UI
+- Bootstrap
+- Font Awesome
 
 ## 🎯 Key Features
 
 ### Dynamic Table Generator
 
--   Table initialization with customizable dimensions
--   Cell merging with intelligent validation
--   Style customization panel
--   Persistent storage
--   Drag-and-drop interface
+- Table initialization with customizable dimensions
+- Cell merging with intelligent validation
+- Style customization panel
+- Persistent storage
+- Drag-and-drop interface
 
 ### Task Manager
 
--   Multiple task stages
--   Task editing and deletion
--   Stage management
--   Drag-and-drop functionality
--   Modern UI/UX
+- Multiple task stages
+- Task editing and deletion
+- Stage management
+- Drag-and-drop functionality
+- Modern UI/UX
 
 ## 🚀 Getting Started
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/anasvhora284/DynamicTableGen.git
-```
+   ```bash
+   git clone https://github.com/anasvhora284/DynamicTableGen.git
+   ```
 
 2. Open any project folder in your preferred browser:
 
-```bash
-cd DynamicTableGen/Task-4-Dynamic table Generator
-```
+   ```bash
+   cd DynamicTableGen/Task-4-Dynamic table Generator
+   ```
 
 3. Open `index.html` in your browser
 
@@ -100,8 +116,12 @@ Contributions, issues, and feature requests are welcome! Feel free to check [iss
 
 **Anas Vhora**
 
--   GitHub: [@anasvhora284](https://github.com/anasvhora284)
+- GitHub: [@anasvhora284](https://github.com/anasvhora284)
 
 ## 🌟 Show your support
 
 Give a ⭐️ if this project helped you!
+
+```
+
+```
