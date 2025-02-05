@@ -1,0 +1,124 @@
+CREATE TABLE PROG (
+    Name varchar(10),
+    DOB Date,
+    DOJ Date,
+    Sex Char(1),
+    Skill1 varchar(10),
+    Skill2 varchar(10),
+    Salary Numeric(5, 0)
+);
+
+INSERT INTO PROG (Name, DOB, DOJ, Sex, Skill1, Skill2, Salary) VALUES
+    ('ANAND', '21-APR-1976', '21-APR-2002', 'M', 'VB',	'C++', 3200),
+    ('NILESH', '02-JUL-1974', '13-NOV-2000', 'M', 'C', 'COBOL', 2800),
+    ('JAGDISH', '31-OCT-1974', '04-OCT-1999', 'M', 'ORACLE', 'JAVA', 4100),
+    ('JULEE', '31-JAN-1978', '21-APR-2000', 'F', 'COBOL', 'JAVA', 3000),
+    ('KAMESH', '30-OCT-1978', '02-JAN-2002', 'M', 'C', 'VB', 2900),
+    ('MARIA', '24-JUN-1970', '01-FEB-2001', 'F', 'C++', 'ORACLE', 2800),
+    ('KRUTI', '11-SEP-1975', '11-OCT-2002', 'F', 'COBOL', 'VB', 2500),
+    ('PARESH', '12-NOV-1975', '21-APR-1998', 'M', 'ASP', 'ORACLE', 2800),
+    ('ARJUN', '31-AUG-1975', '21-AUG-2003', 'M', 'PASCAL', 'C', 3000),
+    ('RAMESH', '08-DEC-1977', '28-FEB-2001', 'M', 'JAVA', 'VB', 4200),
+    ('ASHISH', '01-JAN-1977', '01-DEC-2000', 'M', 'C', 'COBOL', 2500),
+    ('MIRA', '19-APR-1980', '20-APR-2003', 'F', 'PASCAL', 'ASP', 3600),
+    ('RUJUL', '02-DEC-1979', '02-JAN-2002', 'F', 'VB', 'COBOL', 3700),
+    ('VIJAY', '14-DEC-1975', '02-MAY-2000', 'M', 'ORACLE', 'C', 3500),
+    ('NISHA', '30-JUN-1980', '1-JUN-2002', 'F', 'VB', 'ORACLE', 3400);
+
+1: SELECT * FROM PROG WHERE Skill1 = 'VB' OR Skill2 = 'VB' AND Skill1 != 'JAVA' OR Skill2 != 'JAVA';
+
+2: SELECT * FROM PROG WHERE Sex = 'M' AND Skill1 = 'VB' OR Skill2 = 'VB' AND Salary > 3000;
+
+3: SELECT * FROM PROG WHERE Sex = 'F' AND Skill1 != 'JAVA' AND Skill2 != 'COBOL' AND Salary > 3000;
+
+4: SELECT name, length(name) FROM PROG;
+
+5: SELECT lower(name) FROM PROG;
+
+6: SELECT initcap(name) FROM PROG;
+
+7: SELECT rpad(replace(name, 10, '*')) FROM PROG;
+
+8: SELECT * FROM PROG WHERE name LIKE '%A%A%'; <--OR--> SELECT * FROM PROG WHERE name LIKE '%A%A%'; (case insensitive)
+   dont know with INSTR function. 
+
+9: SELECT * FROM PROG WHERE name NOT LIKE '%A%'; <--OR--> SELECT * FROM PROG WHERE name NOT LIKE '%A%'; (case insensitive)
+   dont know with INSTR function. 
+
+10: don't know.
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+1: SELECT ROUND(AVG(Salary), 2) FROM PROG;
+
+2: SELECT SUM(Salary) FROM PROG;
+
+3: SELECT MAX(Salary), MIN(Salary) FROM PROG;
+
+4: SELECT ROUND(AVG(Salary), 2), SUM(Salary) FROM PROG WHERE Sex = 'M';
+
+5: SELECT MAX(Salary), MIN(Salary) FROM PROG WHERE Sex = 'F';
+
+6: SELECT ROUND(AVG(Salary), 2) FROM PROG WHERE Skill1 = 'C' OR Skill1 = 'C++' OR Skill2 = 'C' OR Skill2 = 'C++';
+
+7: SELECT SUM(Salary) FROM PROG WHERE Skill1 != 'ORACLE' AND Skill2 != 'ORACLE';
+
+8: SELECT SUM(Salary) FROM PROG WHERE (Skill1 = 'VB' AND Skill2 != 'JAVA') OR (Skill1 = 'VB' AND Skill2 != 'JAVA');
+
+9: SELECT ROUND(AVG(Salary), 2) FROM PROG WHERE Sex = 'M' AND Salary > 3000;
+
+10: SELECT MAX(Salary) FROM PROG WHERE Salary > 3500;
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+1: SELECT * FROM PROG WHERE Sex = 'M';
+
+2: SELECT * FROM PROG WHERE Sex = 'F';
+
+3: SELECT * FROM PROG WHERE Skill1 = 'C' OR Skill2 = 'C';
+
+4: SELECT * FROM PROG WHERE (Skill1 = 'C' AND Skill2 != 'COBOL') OR (Skill1 = 'C' AND Skill2 != 'COBOL);
+
+5: SELECT * FROM PROG WHERE Salary > 3000;
+
+6: SELECT * FROM PROG WHERE Sex = 'F' AND Salary < 3000;
+
+7: SELECT * FROM PROG WHERE Salary BETWEEN 3000 AND 4000;
+
+8: SELECT * FROM PROG WHERE name LIKE 'K%'; <--OR--> SELECT * FROM PROG WHERE name ILIKE 'K%'; (case insensitive)
+
+9: SELECT * FROM PROG WHERE name LIKE '%R%'; <--OR--> SELECT * FROM PROG WHERE name ILIKE '%R%'; (case insensitive)
+
+10: SELECT * FROM PROG WHERE name NOT LIKE 'J%' AND name NOT LIKE '%R'; <--OR--> SELECT * FROM PROG WHERE name ILIKE 'J%' AND name ILIKE '%R%'; (case insensitive)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1: SELECT * FROM PROG WHERE DOJ BETWEEN '1-MAY-2000' AND '31-DEC-2001';
+
+2: SELECT * FROM PROG WHERE DOB < '1-JAN-1975';
+
+3: SELECT * FROM PROG WHERE DOJ NOT BETWEEN '1-JAN-2000' AND '31-DEC-2000';
+
+4: SELECT * FROM PROG WHERE DOB month('JAN'); (Don't know)
+
+5: SKIP
+
+6: SKIP
+
+7: SKIP
+
+8: SKIP
+
+9: SKIP
+
+10: SKIP
+
+11: SELECT * FROM PROG WHERE DOJ BETWEEN '1-JAN-2000' AND '31-DEC-2000' AND Sex = 'M';
+
+12: SELECT name, age(DOB) FROM PROG;
+
+13: SELECT * FROM PROG WHERE age(DOB) > '27 years 0 mons 0 days';
+
+14: SELECT * FROM PROG WHERE age(DOJ) > '23 years 0 mons 0 days';
+
+15: SELECT SUM(Salary) FROM PROG WHERE age(DOB) < '27 years 0 mons 0 days';

@@ -1,0 +1,112 @@
+CREATE TABLE names (
+    contact_id SERIAL PRIMARY KEY,
+    FirstName varchar(50),
+    LastName varchar(50),
+    BirthDate DATE
+);
+
+CREATE TABLE address (
+    contact_id SERIAL PRIMARY KEY,
+    StreetAddress varchar(50),
+    City varchar(50),
+    State varchar(50),
+    zip Numeric (7, 0),
+    Country varchar(50)
+);
+
+CREATE TABLE telephones (
+    contact_id SERIAL PRIMARY KEY,
+    TelephoneHome varchar(50),
+    TelephoneWork varchar(50)
+);
+
+CREATE TABLE email (
+    contact_id SERIAL PRIMARY KEY,
+    email varchar(50)
+);
+
+CREATE TABLE company_details (
+    contact_id SERIAL PRIMARY KEY,
+    company_name varchar(50),
+    designation varchar(50)
+);
+
+2: INSERT INTO names (FirstName, LastName, BirthDate) VALUES
+    ('Yamila','Diaz ','1974-10-13'),
+    ('Nikki','Taylor','1972-03-04'),
+    ('Tia','Carrera','1975-09-18');
+
+3: select * from names;
+
+4: INSERT INTO address (contact_id, StreetAddress, City, State, zip, Country) VALUES
+    ('1', '300 Yamila Ave.', 'Los Angeles', 'CA', '300012', 'USA'),
+	('2','4000 Nikki St.','Boca Raton','FL','500034','USA'),
+    ('3','404 Tia Blvd.','New York','NY','10011','USA');
+
+5: select * from address;
+
+6: INSERT INTO company_details (contact_id, company_name, designation) VALUES
+    ('1','Xerox','New Business Manager'),
+    ('2','Cabletron','Customer Support Eng'),
+    ('3','Apple','Sales Manager');
+
+7: select * from company_details;
+
+8: INSERT INTO email (contact_id, email) VALUES
+    ('1', 'yamila@yamila.com'),
+    ('2', 'nikki@nikki.com'),
+    ('3','tia@tia.com');
+
+9: select * from email;
+
+10: INSERT INTO telephones (contact_id, TelephoneHome, TelephoneWork) VALUES
+    ('1','333-50000','333-60000'),
+    ('2','444-70000','444-80000'),
+    ('3','555-30000','55 5-40000');
+
+11: select * from telephones;
+
+12: select * from names WHERE contact_id > 1;
+
+13: select * from names WHERE contact_id > 1 ORDER BY LastName;
+
+14: select * from names WHERE BirthDate > '1973-03-06';
+
+15: select FirstName, LastName from names WHERE LastName LIKE 'c%'; <--OR--> select FirstName, LastName from names WHERE LastName ILIKE 'c%'; (case insensitive)
+
+16: select FirstName, LastName from names WHERE LastName LIKE '%iaz%'; <--OR--> select FirstName, LastName from names WHERE LastName ILIKE '%iaz%'; (case insensitive)
+
+17: select FirstName from names WHERE contact_id < 3 AND LastName ILIKE 'd%';
+
+18: select * from names WHERE LastName = 'Diaz ' OR LastName = 'Carrera';
+
+19: select count(contact_id) from names;
+
+20: select * from names WHERE contact_id >= (select max(contact_id) from names);
+
+21: select names.contact_id, FirstName, LastName, email from names inner join email on email.contact_id = names.contact_id;
+
+22: select names.contact_id, FirstName, email, TelephoneWork from names inner join email on email.contact_id = names.contact_id inner join telephones on telephones.contact_id = names.contact_id;
+
+23: select names.contact_id, FirstName, email, TelephoneHome from names inner join email on email.contact_id = names.contact_id inner join telephones on telephones.contact_id = names.contact_id WHERE TelephoneHome IS NOT NULL;
+
+24: select FirstName, LastName from names WHERE contact_id BETWEEN 2 AND 3;
+
+25: ALTER TABLE names ADD COLUMN age SMALLINT;
+
+26: ALTER TABLE names ALTER COLUMN age TINYINT;
+
+27: ALTER TABLE names rename to mynames;
+
+28: ALTER TABLE mynames rename to names;
+
+29: UPDATE names SET age = CASE 
+    WHEN contact_id = 1 THEN 23
+    WHEN contact_id = 2 THEN 24
+    WHEN contact_id = 3 THEN 25
+    END;
+
+30: DELETE from names WHERE age = 23; 
+
+31: DROP TABLE names;
+

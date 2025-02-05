@@ -1,0 +1,77 @@
+PROG TABLE: same query as in Pr -2.
+COURSE TABLE: 
+    CREATE TABLE COURSE (
+        Name varchar(10),
+        Place varchar(10),
+        Course varchar(5),
+        Cost Numeric(6, 0)
+    );
+
+INSERT Data:
+    INSERT INTO COURSE (Name, Place, Course, Cost) VALUES 
+        ('ANAND', 'Surat', 'MCA', 15000),
+        ('NILESH', 'Baroda', 'BCA', 10000),
+        ('JAGDISH', 'Rajkot', 'MCA', 15000),
+        ('JULEE', 'Baroda', 'PGDCA', 7000),
+        ('KAMESH', 'Vapi', 'BSC', 12000),
+        ('MARIA', 'Delhi', 'MSC', 15000),
+        ('KRUTI', 'Mumbai', 'BCA', 10000),
+        ('PARESH', 'Vapi', 'MCA', 15000),
+        ('ARJUN', 'Nagpur', 'MSC', 15000),
+        ('RAMESH', 'Pune', 'PGDCA', 7000),
+        ('ASHISH', 'Surat', 'MCA', 15000),
+        ('MIRA', 'Rajkot', 'BCA', 10000),
+        ('RUJUL', 'Pune', 'BSC', 12000),
+        ('VIJAY', 'Pune', 'BCA', 10000),
+        ('NISHA', 'Baroda', 'MCA', 15000);
+
+
+1: SELECT * FROM PROG WHERE Salary = (SELECT max(salary) FROM PROG);
+
+2: SELECT * FROM PROG WHERE Salary = (SELECT min(salary) FROM PROG);
+
+3: SELECT * FROM PROG WHERE Salary = (SELECT max(salary) FROM PROG WHERE Skill1 = 'VB' OR Skill2 = 'VB');
+
+4: SELECT * FROM PROG WHERE Salary = (SELECT min(salary) FROM PROG) AND Sex = 'F';
+
+5: SELECT * FROM PROG WHERE Salary > (SELECT avg(salary) FROM PROG);
+
+6: SELECT * FROM PROG WHERE age(DOB) = (SELECT max(age(DOB)) FROM PROG);
+
+7: SELECT * FROM PROG WHERE age(DOJ) = (SELECT min(age(DOJ)) FROM PROG);
+
+8: SELECT * FROM PROG WHERE Salary > (SELECT MAX(salary) FROM PROG WHERE Skill1 = 'C++' OR Skill2 = 'C++');
+
+9: SKIP
+
+10: SKIP
+
+11: SKIP
+
+12: SELECT * FROM PROG WHERE Skill1 = (SELECT Skill1 FROM PROG WHERE name='ASHISH') AND Skill2 = (SELECT Skill2 FROM PROG WHERE name='ASHISH');
+
+13: SELECT * FROM PROG WHERE age(DOB) < (SELECT age(DOB) FROM PROG WHERE name = 'KRUTI');
+
+14: SELECT * FROM PROG WHERE Salary = (SELECT max(Salary) FROM PROG WHERE YEAR(DOB) = (SELECT YEAR(DOB) FROM PROG WHERE name = 'ARJUN')); (Not working due to function nname YEAR)
+
+15: SELECT * FROM PROG WHERE age(DOJ) < (SELECT age(DOJ) FROM PROG WHERE name = 'JULEE') AND salary > (SELECT salary FROM PROG WHERE name = 'JULEE');
+
+16: SELECT * FROM PROG inner join Course on PROG.name = Course.name WHERE Course.course = 'BCA' OR Course.course = 'BSC';
+
+17: SELECT * FROM PROG inner join Course on PROG.name = Course.name WHERE Course.course != 'MCA' AND Course.course != 'MSC';
+
+18: SELECT * FROM PROG inner join Course on PROG.name = Course.name WHERE Course.course = (SELECT course FROM Course WHERE name = 'NISHA');
+
+19: SELECT * FROM PROG inner join Course on PROG.name = Course.name WHERE Course.Place = (SELECT Place FROM Course WHERE name = 'NILESH');
+
+20: SELECT * FROM PROG WHERE Salary = (SELECT max(salary) FROM PROG inner join Course on PROG.name = Course.name);
+
+21: SELECT * FROM PROG WHERE Salary > (SELECT avg(salary) FROM PROG inner join Course on PROG.name = Course.name WHERE Course.course = 'BCA');
+
+22: SELECT * FROM PROG inner join Course on PROG.name = Course.name WHERE Course.course = (SELECT course FROM Course WHERE name = 'PARESH') AND salary > (SELECT salary FROM PROG WHERE name = 'PARESH');
+
+23: SELECT * FROM PROG inner join Course on PROG.name = Course.name WHERE Course.course = 'MCA' AND salary > (SELECT max(salary) from PROG inner join Course on PROG.name = Course.name WHERE Course.course = 'MSC'); 
+
+24: SELECT * FROM PROG inner JOIN Course on PROG.name = Course.name WHERE Course.course = 'BSC' AND Salary < (SELECT min(Salary) FROM PROG inner JOIN Course ON PROG.name = Course.name WHERE Course.course = 'BCA'); 
+
+25: SELECT * FROM PROG inner join Course on PROG.name = Course.name WHERE Course.Cost >= (SELECT max(Cost) from Course);

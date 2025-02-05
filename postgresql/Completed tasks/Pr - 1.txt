@@ -1,0 +1,70 @@
+CREATE TABLE employees (
+    Eno Numeric(2,0),
+    Ename Varchar(10),
+    Sal Numeric(6,2),
+    Dno Numeric(2,0),
+    Jdate Date
+);
+
+INSERT INTO employees (Eno, Ename, Sal, Dno, Jdate) VALUES
+    (1, 'Amit', 2000.00, 1, '2000-01-01'),
+    (2, 'Rajesh', 1000.00, 2, '2000-01-21'),
+    (3, 'Raman', 3000.00, 2, '2001-04-20'),
+    (4, 'Mahesh', 2500.00, 3, '2002-02-10'),
+    (5, 'Rajit', 3000.00, 4, '2001-06-15'),
+    (6, 'Nilam', 4000.00, 1, '2003-02-12'),
+    (7, 'Paresh', 1200.00, 4, '2002-03-13'),
+    (8, 'Ankur', 3000.00, 3, '2001-04-10'),
+    (9, 'Rujul', 5000.00, 2, '2002-01-01'),
+    (10, 'Krutesh', 5500.00, 3, '2002-10-01');
+
+SELECT * FROM employees WHERE Dno = 1;
+
+SELECT * FROM employees WHERE Dno != 3;
+
+SELECT * FROM employees ORDER BY Ename;
+
+SELECT * FROM employees ORDER BY Sal DESC;
+
+SELECT * FROM employees WHERE Sal > 1000.00;
+
+SELECT * FROM employees WHERE Sal > 1000.00 AND Sal < 3000.00;
+
+SELECT * FROM employees WHERE Sal > 2000.00 AND Dno != 3;
+
+SELECT * FROM employees WHERE Ename LIKE 'R%'; <--OR--> SELECT * FROM employees WHERE Ename ILIKE 'R%'; (Case insensitive)
+
+SELECT * FROM employees WHERE Ename LIKE '%H'; <--OR--> SELECT * FROM employees WHERE Ename ILIKE '%H'; (Case insensitive)
+
+SELECT * FROM employees WHERE Ename LIKE '%A%'; <--OR--> SELECT * FROM employees WHERE Ename ILIKE '%A%'; (Case insensitive)
+
+UPDATE employees SET Sal = Sal + 100 WHERE Dno = 1;
+
+UPDATE employees SET Sal = Sal - 300 WHERE Dno != 2;
+
+SELECT * FROM employees WHERE Jdate BETWEEN '1-Jan-2001' AND '21-Dec-2002';
+
+DELETE FROM employees WHERE Dno = 21 AND Sal > 3500;
+
+DELETE FROM employees WHERE Jdate > '1-Jan-2002';
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE departments (
+    Dno Numeric(2,0),
+    Dname Varchar(10),
+    Loc Varchar(10)
+);
+
+INSERT INTO departments (Dno, Dname, Loc) VALUES
+    (1, 'Purchase', 'Mumbai'),
+    (2, 'Research', 'Delhi'),
+    (3, 'Sales', 'Pune'),
+    (4, 'Marketing', 'Ahmedabad');
+
+SELECT * FROM departments WHERE Loc = 'Delhi' OR Loc = 'Mumbai';
+
+SELECT * FROM departments WHERE Dname LIKE '%H%'; <--OR--> SELECT * FROM departments WHERE Dname ILIKE '%H%'; (Case insensitive)
+
+SELECT * FROM departments ORDER BY Dname;
