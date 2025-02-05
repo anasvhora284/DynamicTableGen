@@ -1,3 +1,5 @@
+const isMobile = window.innerWidth <= 768;
+
 let screens = ["home", "player-selection", "game"];
 let currentScreen = "home";
 let player1Name = "";
@@ -84,8 +86,15 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on("click", ".cell", function () {
-    if ($(this).text() == "") {
+  $(document).on("click touchstart", ".cell", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (e.type === "touchstart" && e.originalEvent.touches.length > 1) {
+      return;
+    }
+
+    if ($(this).text().trim() === "") {
       $("#game-alert").empty().hide();
       $(".current-player-turn").html(
         `Current Player: <i class="fa ${
@@ -94,8 +103,8 @@ $(document).ready(function () {
       );
       $(this).html(
         playerTurn === "X"
-          ? `<div class = "cross-icon">X</div>`
-          : `<div class = "circle-icon">O</div>`
+          ? `<div class="cross-icon">X</div>`
+          : `<div class="circle-icon">O</div>`
       );
       const cellIndex = parseInt($(this).attr("id").replace("cell", "")) - 1;
       let currentBoard;
@@ -140,6 +149,24 @@ $(document).ready(function () {
       `https://api.dicebear.com/6.x/avataaars/svg?seed=${newSeed}`
     );
   });
+
+  updateWinningLinePositions();
+  window.addEventListener("orientationchange", updateWinningLinePositions);
+
+  $(".cell").on("touchend touchcancel", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  });
+
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      if (e.target.classList.contains("cell")) {
+        e.preventDefault();
+      }
+    },
+    { passive: false }
+  );
 });
 
 function nextStage() {
@@ -359,5 +386,54 @@ function updateUIFromGameData() {
         $(".game-board").addClass("game-won");
       }
     }
+  }
+}
+
+function updateWinningLinePositions() {
+  if (isMobile) {
+    const lines = {
+      hr1: { top: "38%", left: "10%", width: "80%" },
+      hr2: { top: "53%", left: "10%", width: "80%" },
+      hr3: { top: "68%", left: "10%", width: "80%" },
+      hr4: {
+        top: "53%",
+        left: "-15%",
+        transform: "rotate(90deg)",
+        width: "80%",
+      },
+      hr5: {
+        top: "53%",
+        left: "10%",
+        transform: "rotate(90deg)",
+        width: "80%",
+      },
+      hr6: {
+        top: "53%",
+        left: "35%",
+        transform: "rotate(90deg)",
+        width: "80%",
+      },
+      hr7: {
+        top: "52%",
+        left: "0%",
+        transform: "rotate(45deg)",
+        width: "100%",
+      },
+      hr8: {
+        top: "52%",
+        left: "0%",
+        transform: "rotate(-45deg)",
+        width: "100%",
+      },
+    };
+
+    Object.entries(lines).forEach(([id, styles]) => {
+      const element = document.getElementById(id);
+      if (element) {
+        Object.entries(styles).forEach(([prop, value]) => {
+          element.style[prop] = value;
+        });
+      }
+    });
   }
 }
