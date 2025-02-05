@@ -40,12 +40,12 @@ INSERT INTO PROG (Name, DOB, DOJ, Sex, Skill1, Skill2, Salary) VALUES
 7: SELECT rpad(replace(name, 10, '*')) FROM PROG;
 
 8: SELECT * FROM PROG WHERE name LIKE '%A%A%'; <--OR--> SELECT * FROM PROG WHERE name LIKE '%A%A%'; (case insensitive)
-   dont know with INSTR function. 
+   SELECT * FROM PROG WHERE STRPOS('%A%A%', name);
 
 9: SELECT * FROM PROG WHERE name NOT LIKE '%A%'; <--OR--> SELECT * FROM PROG WHERE name NOT LIKE '%A%'; (case insensitive)
    dont know with INSTR function. 
 
-10: don't know.
+10: SELECT SUBSTRING(name FROM 1 FOR 3) FROM PROG;
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -99,19 +99,19 @@ INSERT INTO PROG (Name, DOB, DOJ, Sex, Skill1, Skill2, Salary) VALUES
 
 3: SELECT * FROM PROG WHERE DOJ NOT BETWEEN '1-JAN-2000' AND '31-DEC-2000';
 
-4: SELECT * FROM PROG WHERE DOB month('JAN'); (Don't know)
+4: SELECT * FROM PROG WHERE EXTRACT(MONTH from DOB) = 1;
 
-5: SKIP
+5: SELECT * FROM PROG WHERE EXTRACT(MONTH from DOJ) = 2 OR EXTRACT(MONTH from DOJ) = 4;
 
-6: SKIP
+6: SELECT * FROM PROG WHERE EXTRACT(MONTH from DOB) = 12 AND EXTRACT(MONTH from DOJ) != 1;
 
-7: SKIP
+7: SELECT * FROM PROG WHERE EXTRACT(DOW from DOB) = 0;
 
-8: SKIP
+8: SELECT * FROM PROG WHERE EXTRACT(DAY from DOB) > 28;
 
-9: SKIP
+9: SELECT * FROM PROG WHERE EXTRACT(MONTH from DOB) = EXTRACT(MONTH from DOJ);
 
-10: SKIP
+10: SELECT * FROM PROG WHERE EXTRACT(MONTH from DOB) = 12 AND Sex = 'M';
 
 11: SELECT * FROM PROG WHERE DOJ BETWEEN '1-JAN-2000' AND '31-DEC-2000' AND Sex = 'M';
 
