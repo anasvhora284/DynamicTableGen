@@ -98,10 +98,6 @@ A classic Snake game implementation:
 
 2. Open any project folder in your preferred browser:
 
-   ```bash
-   cd DynamicTableGen/Task-4-Dynamic table Generator
-   ```
-
 3. Open `index.html` in your browser
 
 ## 📝 License
@@ -121,7 +117,3 @@ Contributions, issues, and feature requests are welcome! Feel free to check [iss
 ## 🌟 Show your support
 
 Give a ⭐️ if this project helped you!
-
-```
-
-```
