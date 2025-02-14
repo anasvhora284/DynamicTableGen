@@ -1,0 +1,21 @@
+{
+    'coord': {'lon': 72.6167, 'lat': 23.0333}, 
+    'weather': [{'id': 711, 'main': 'Smoke', 'description': 'smoke', 'icon': '50d'}], 
+    'base': 'stations', 
+    'main': {
+        'temp': 303.17, 
+        'feels_like': 301.66, 
+        'temp_min': 303.17, 
+        'temp_max': 303.17, 
+        'pressure': 1012, 
+        'humidity': 26, 
+        'sea_level': 1012,
+        'grnd_level': 1007
+    }, 
+    'visibility': 4000, 
+    'wind': {'speed': 3.6, 'deg': 290}, 
+    'clouds': {'all': 0}, 
+    'dt': 1739352886, 
+    'sys': {'type': 1, 'id': 9049, 'country': 'IN', 'sunrise': 1739324635, 'sunset': 1739365428}, 
+    'timezone': 19800, 'id': 1279233, 'name': 'Ahmedabad', 'cod': 200
+}
