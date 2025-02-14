@@ -4,7 +4,7 @@ A collection of web development projects focusing on DOM manipulation, dynamic c
 
 ## 🚀 Projects
 
-### 1. [Dynamic Table Generator](Task-4-Dynamic%20table%20Generator/)
+### 1. [Dynamic Table Generator](JS/Tasks%20Folder/Dynamic%20table%20generator/)
 
 An interactive table generator with advanced features:
 
@@ -15,7 +15,7 @@ An interactive table generator with advanced features:
 - Local storage persistence
 - Responsive design
 
-### 2. [Task Manager](Task-6-ToDoList/)
+### 2. [Task Manager](JS/Tasks%20Folder/Task%20Manager/)
 
 A Kanban-style task management system:
 
@@ -25,7 +25,7 @@ A Kanban-style task management system:
 - Stage management
 - Clean and modern UI
 
-### 3. [Table Layouts](Task-1/)
+### 3. [Table Layouts](JS/Tasks%20Folder/Html%20tables/)
 
 A collection of complex table layouts demonstrating advanced HTML table structures:
 
@@ -35,7 +35,7 @@ A collection of complex table layouts demonstrating advanced HTML table structur
 - Color-coded cells
 - Responsive designs
 
-### 4. [Form Styling](Task-2/)
+### 4. [Form Styling](JS/Tasks%20Folder/Form%20Styling/)
 
 Modern form design implementation:
 
@@ -44,7 +44,7 @@ Modern form design implementation:
 - Form validation
 - Enhanced user experience
 
-### 5. [Tick-Tack-Toe Game](Task-7-Tick-Tack-Toe/)
+### 5. [Tick-Tack-Toe Game](JS/Tasks%20Folder/Tick%20Tack%20Toe/)
 
 A simple implementation of the classic game with a leaderboard feature:
 
@@ -52,7 +52,7 @@ A simple implementation of the classic game with a leaderboard feature:
 - Game history tracking
 - Responsive design
 
-### 6. [Snake Game](Task-8-snake-game/)
+### 6. [Snake Game](JS/Tasks%20Folder/Snake%20Game/)
 
 A classic Snake game implementation:
 
