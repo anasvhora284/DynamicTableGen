@@ -177,6 +177,10 @@ form > div select:focus {
   transition: all 0.5s;
 }
 
+#user-id {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   body {
     overflow-y: scroll;
