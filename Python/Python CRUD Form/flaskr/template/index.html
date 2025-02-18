@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task #2</title>
+  <link rel="stylesheet" href="../static/index.css" />
+  <script src="../static/index.js"></script>
+</head>
+
+<body>
+  <div class="form_container">
+    <form id="form" onsubmit="print_form_data(event)">
+      <p class="form_heading_text">Form</p>
+
+      <!--Name Field-->
+      <div class="name_field">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter name" required />
+      </div>
+
+      <!--Email Field-->
+      <div class="email_field">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Enter email" id="email" required />
+      </div>
+
+      <!--Details Field-->
+      <div class="details_field">
+        <label for="details">Details:</label>
+        <textarea name="details" id="details" placeholder="Enter Details" required minlength="10"></textarea>
+      </div>
+
+      <!--Password Field-->
+      <div class="password_field">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Enter password"
+          title="Password must contain at least one number, one uppercase and one lowercase letter, and at least 6 or more characters"
+          required />
+      </div>
+
+      <!--Confirm Password Field-->
+      <div class="confirm_password_field">
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Enter confirm password"
+          onchange="validatePassword()" required />
+      </div>
+
+      <!--Age Field-->
+      <div class="age_field">
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" placeholder="Enter age" required />
+      </div>
+
+      <!--DoB picker-->
+      <div class="dob_field">
+        <label for="dob"> Birth Date: </label>
+        <input type="date" id="dob" name="dob" required />
+      </div>
+
+      <!--Gender radio choice-->
+      <div class="gender_field">
+        <label for="gender">Gender:</label>
+
+        <div class="gender_options_container">
+          <div class="gender_option_male">
+            <input type="radio" name="gender" id="gender_male" value="male" required />Male
+          </div>
+
+          <div class="gender_option_female">
+            <input type="radio" name="gender" id="gender_female" value="female" />Female
+          </div>
+        </div>
+      </div>
+
+      <!--T&C with Hidden Field-->
+      <div class="term_n_conditions_container">
+        <div>
+          <label for="term_n_conditions_accept" title="Click this checkbox to agree to our terms and conditions!">
+            <input type="checkbox" name="term_n_conditions_accept" id="term_n_conditions_accept" required />
+            I accept all terms and conditions
+          </label>
+        </div>
+
+        <div class="hidden_field">
+          <input type="hidden" name="hidden_field" id="hidden_field" />
+        </div>
+      </div>
+
+      <!--Buttons-->
+      <div class="buttons_container">
+        <div>
+          <button type="submit" id="submit_btn">Submit</button>
+          <button type="reset" id="cancle_btn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
