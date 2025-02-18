@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin side</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel=" stylesheet" href="../static/admin.css">
+    <script>
+        function delete_user_data(id) {
+            try {
+                fetch(`/delete-form-data/${id}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                alert("User data deleted successfully");
+                window.location.href = "/admin";
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Admin side</h1>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Details</th>
+            <th>Age</th>
+            <th>DoB</th>
+            <th>Gender</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in users %}
+        {% if not users %}
+        <tr>
+            <td colspan="8">There are no users to show!!!</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.details }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.dob[5:16] }}</td>
+            <td>{{ user.gender }}</td>
+            <td>
+                <a class="edit-icon" href="/edit/{{ user.id }}">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a class="delete-icon" onclick="delete_user_data({{ user.id }})">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    <a href="/">Add new user</a>
+</body>
+
+</html>

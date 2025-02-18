@@ -78,7 +78,21 @@ function print_form_data(event) {
     formData.forEach((value, key) => {
       formObject[key] = value;
     });
-    alert(JSON.stringify(formObject));
+
+    try {
+      fetch("/add-form-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formObject),
+      });
+
+      window.location.href = "/admin";
+      alert("User data added successfully");
+    } catch (error) {
+      console.error("Error:", error);
+    }
     clearFormData();
   }
 }
